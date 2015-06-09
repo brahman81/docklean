@@ -43,8 +43,8 @@ class Docklean
                     when 'false'
                         # check it's older than MAX_AGE
                         if meta[:age] >= @max_age then
-                            # only remove container if it doesn't match keep_filter
-                            unless meta[:name].match(%r{#{self.get_conf('keep_filter')}}) then
+                            # only remove container if it doesn't match keep_filter, or if keep_filter is empty
+                            unless meta[:name].match(%r{#{self.get_conf('keep_filter')}}) or self.get_conf('keep_filter').to_s.empty?() then
                                 %x{#{@docker_bin} rm #{container.to_s.chomp}}
                                 puts "info: deleting #{container.to_s.chomp} (container)"
                             else
