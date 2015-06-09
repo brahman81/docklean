@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'docklean'
-  s.version     = '0.0.4'
+  s.version     = '0.0.5'
   s.date        = '2015-04-19'
   s.summary     = "clean up docker containers/images"
   s.description = "helps stay on top of disk utilisation"
